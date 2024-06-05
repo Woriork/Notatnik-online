@@ -26,8 +26,10 @@
         <div>
             {% for note in notes %}
                 <div>
+                    {% if request.user == note.host %}
                     <a href="{% url 'update-note' note.id %}"> Edit</a>
                     <a href="{% url 'delete-note' note.id %}">Delete</a>
+                    {% endif %}
                     <span>@{{note.host.username}}</span>
                     <h5>{{note.id}} --<a href ="{% url 'note' note.id %}"> {{note.name}}</a></h5>
                 <small>{{note.topic.name}}</small>
