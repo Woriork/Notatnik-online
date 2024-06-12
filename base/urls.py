@@ -11,4 +11,5 @@ urlpatterns = [
     path('create-note/', views.createNote, name="create-note"),
     path('update-note/<str:pk>/',views.updateNote, name = "update-note"),
     path('delete-note/<str:pk>/',views.deleteNote, name = "delete-note"),
+    path('delete-message/<str:pk>/',views.deleteMessage, name = "delete-message"),
 ] 

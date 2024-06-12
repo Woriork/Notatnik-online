@@ -74,6 +74,7 @@ def note(request, pk):
             note=note,
             body=request.POST.get('body')
         )
+        note.participants.add(request.user)
         return redirect('note', pk=note.id)
     context = {'note' : note, 'note_messages' : note_messages,
                 'participants': participants}
@@ -118,3 +119,17 @@ def deleteNote(request,pk):
         note.delete()
         return redirect('home')
     return render(request, 'base/delete.html',{'obj':note})
+
+
+
+@login_required(login_url='login')
+def deleteMessage(request,pk):
+    message = Message.objects.get(id=pk)
+
+    if request.user != message.user:
+        return HttpResponse('You are not allowed here')
+
+    if request.method =="POST":
+        message.delete()
+        return redirect('home')
+    return render(request, 'base/delete.html',{'obj':message})
