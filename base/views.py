@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+#from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from .models import Note, Topic
+from .models import Note, Topic, Message
 from .forms import NoteForm
 # Create your views here.
 
@@ -65,8 +66,18 @@ def home(request):
 
 def note(request, pk):
     note = Note.objects.get(id = pk)
-    context = {'note': note}
-    return render(request, 'base/note.html',context)
+    note_messages = note.message_set.all().order_by('-created')
+    participants = note.participants.all()
+    if request.method == 'POST':
+        message = Message.objects.create(
+            user=request.user,
+            note=note,
+            body=request.POST.get('body')
+        )
+        return redirect('note', pk=note.id)
+    context = {'note' : note, 'note_messages' : note_messages,
+                'participants': participants}
+    return render(request, 'base/note.html', context)
 
 @login_required(login_url='login')
 def createNote(request):

@@ -13,7 +13,7 @@ class Note(models.Model):
     topic = models.ForeignKey(Topic , on_delete=models.SET_NULL, null = True)
     name = models.CharField(max_length=200)
     text = models.TextField(null=True, blank=True)
-    #participants
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
     #user = 
     updated = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
