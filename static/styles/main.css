@@ -1,3 +1,151 @@
-body{
-    background-color: rgba(89, 136, 137, 0.395);
+/* main.css */
+
+/* Styl dla całego ciała strony */
+body {
+    background-image: linear-gradient(rgb(32, 93, 147), rgb(37, 142, 181));
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Styl dla kontenera głównego */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styl dla nagłówka strony */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: rgb(32, 93, 147);
+}
+
+/* Styl dla linków */
+a {
+    color: rgb(37, 142, 181);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Przyciski */
+.button {
+    background-color: #4CAF50; /* Zielone tło */
+    border: none; /* Brak obramowania */
+    color: white; /* Biały tekst */
+    padding: 15px 32px; /* Wewnętrzne odstępy */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    text-decoration: none; /* Brak podkreślenia */
+    display: inline-block; /* Umożliwia ustawienie marginesów */
+    font-size: 16px; /* Rozmiar czcionki */
+    margin: 4px 2px; /* Zewnętrzne odstępy */
+    cursor: pointer; /* Kursor w formie ręki */
+    border-radius: 12px; /* Zaokrąglone rogi */
+    transition: background-color 0.3s; /* Płynna zmiana koloru tła */
+}
+
+.button:hover {
+    background-color: #45a049; /* Ciemniejszy zielony przy najechaniu */
+}
+
+/* Warianty kolorystyczne przycisków */
+.button-primary {
+    background-color: #008CBA; /* Niebieskie tło */
+}
+
+.button-primary:hover {
+    background-color: #007bb5; /* Ciemniejszy niebieski przy najechaniu */
+}
+
+.button-danger {
+    background-color: #f44336; /* Czerwone tło */
+}
+
+.button-danger:hover {
+    background-color: #da190b; /* Ciemniejszy czerwony przy najechaniu */
+}
+
+.button-warning {
+    background-color: #ff9800; /* Pomarańczowe tło */
+}
+
+.button-warning:hover {
+    background-color: #e68a00; /* Ciemniejszy pomarańczowy przy najechaniu */
+}
+
+.button-secondary {
+    background-color: #e7e7e7; /* Szare tło */
+    color: black; /* Czarny tekst */
+}
+
+.button-secondary:hover {
+    background-color: #d6d6d6; /* Ciemniejszy szary przy najechaniu */
+}
+
+/* Styl dla kart notatek */
+.note-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.note-card h5 {
+    margin-top: 0;
+}
+
+.note-card small {
+    color: #777;
+}
+
+.note-card .actions {
+    margin-top: 10px;
+}
+
+.note-card .actions a {
+    margin-right: 10px;
+    color: #ff0000;
+}
+
+/* Styl dla kontenera strony domowej */
+.home-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+/* Styl dla sekcji przeglądania tematów */
+.browse-topics {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.browse-topics h3 {
+    margin-top: 0;
+}
+
+.browse-topics a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Media queries dla responsywności */
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 1fr;
+    }
 }
