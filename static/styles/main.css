@@ -2,7 +2,7 @@
 
 /* Styl dla całego ciała strony */
 body {
-    background-image: linear-gradient(rgb(32, 93, 147), rgb(37, 142, 181));
+    background-image: linear-gradient(rgb(5, 22, 37), rgb(37, 142, 181));
     margin: 0;
     font-family: Arial, sans-serif;
     color: #333;
