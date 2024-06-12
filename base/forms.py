@@ -5,3 +5,4 @@ class NoteForm(ModelForm):
     class Meta:
         model = Note
         fields = '__all__'
+        exclude = ['host','participants']

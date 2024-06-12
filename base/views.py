@@ -86,7 +86,9 @@ def createNote(request):
     if request.method =='POST':
         form = NoteForm(request.POST)
         if form.is_valid():
-            form.save()
+            note = form.save(commit=False)
+            note.host = request.user
+            note.save()
             return redirect('home')
     context = {'form': form}
     return render(request, 'base/note_form.html', context)
